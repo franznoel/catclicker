@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cat Clicker</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<style type="text/css">
+			body {margin:0;padding:0;}
+			h1 {margin:0;padding:0;}
+			.animals {display:block;width:100%;height:auto;}
+			.animal .name {margin:0;padding:0;}
+			a.animal {font-family:Arial,Helvetica,Sans-serif;text-decoration:none;border:1px solid #afafaf;display: inline-block;width:auto;cursor:pointer;font-weight:normal;border-radius:3px;padding:3px;}
+			a.animal:hover {background-color:#afafaf;color:#cc0000;}
+			.animal img {display:block;width:auto;height:150px;display:none;}
+			.animal .score {margin:0;padding:0;display:none;}
+
+			.display {margin:5px 0 0 0;height:450px;width:50%;display:block;clear:both;padding:10px;border:1px solid #afafaf;border-radius:5px;}
+			.display .name {margin:0;padding:0;width:30%;display:inline-block;}
+			.display .score {margin:0;padding:0;width:60%;display:inline-block;}
+			.display img {height:400px;cursor:pointer;}
+		</style>
+	</head>
+
+	<body>
+		<h1>Cat Clicker</h1>
+		<div class="animals">
+			<a class="animal">
+				<h2 class="name">What's that?</h2>
+				<h3 class="score">Score: <span>0</span></h3>
+				<img src="cat1.jpg" />
+			</a>
+			<a class="animal">
+				<h2 class="name">Half Cat</h2>
+				<h3 class="score">Score: <span>0</span></h3>
+				<img src="cat2.jpg" />
+			</a>
+			<a class="animal">
+				<h2 class="name">Lovable</h2>
+				<h3 class="score">Score: <span>0</span></h3>
+				<img src="cat3.jpg" />
+			</a>
+			<a class="animal">
+				<h2 class="name">Big Eyes</h2>
+				<h3 class="score">Score: <span>0</span></h3>
+				<img src="cat4.jpg" />
+			</a>
+			<a class="animal">
+				<h2 class="name">Lotsa cats</h2>
+				<h3 class="score">Score: <span>0</span></h3>
+				<img src="cat5.jpg" />
+			</a>
+		</div>
+
+		<div class="display">
+			<h2 class="name">Demo</h2>
+			<h3 class="score">Score: <span>0</span></h3>
+			<img src="cat5.jpg" />
+		</div>
+
+		<script type="text/javascript">
+			var score = 0;
+			$(".animal").click(function(e) {
+				e.preventDefault();
+				var score = parseInt($(this).find(".score span").html());
+				var name = $(this).find(".name").html();
+				var imgUrl = $(this).find("img").attr("src");
+
+				score+=1;
+
+				$(".display .name").html(name);
+				$(this).find(".score span").html(score);
+				$(".display .score span").html(score);
+				$(".display img").attr("src",imgUrl);
+			});
+		</script>
+	</body>
+</html>
+
+
+
+
